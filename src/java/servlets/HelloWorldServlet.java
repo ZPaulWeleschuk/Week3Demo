@@ -34,6 +34,8 @@ public class HelloWorldServlet extends HttpServlet {
         
         //if either field is empty reload the page
         if(firstname == null || firstname.equals("") || lastname == null || lastname.equals("")){ // always check null first
+            request.setAttribute("message", "Invalid entry. Please enter both your first and last names.");
+            
             getServletContext().getRequestDispatcher("/WEB-INF/helloWorldForm.jsp")
                 .forward(request,response);
             return;
